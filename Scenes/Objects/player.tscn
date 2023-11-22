@@ -1,61 +1,11 @@
-[gd_scene load_steps=4 format=3 uid="uid://dd3fuj277om1h"]
+[gd_scene load_steps=2 format=3 uid="uid://dd3fuj277om1h"]
 
-[ext_resource type="PackedScene" uid="uid://doxlhjhlm6ip2" path="res://Scenes/Base/character_bear.tscn" id="2_7wtpm"]
+[ext_resource type="PackedScene" uid="uid://bmxikj1tjml5o" path="res://Scenes/Base/character.tscn" id="1_n1nux"]
 
-[sub_resource type="GDScript" id="GDScript_ypnqo"]
-script/source = "extends CharacterBody3D
+[node name="Player" instance=ExtResource("1_n1nux")]
 
-@export_subgroup(\"Properties\")
-# How fast the player moves
-@export var movement_speed = 150
-# The downward acceleration when in the air
-@export var gravity_speed = 150
+[node name="handSlotLeft" parent="Visual/GeneralSkeleton" index="3"]
+transform = Transform3D(1, 1.49012e-08, 2.38418e-07, -1.49012e-08, 1, 1.3411e-07, -2.38419e-07, -1.3411e-07, 0.999999, 0.4, 0.205887, -1.26106e-07)
 
-var movement_velocity = Vector3.ZERO
-var y_velocity = 0
-
-func _physics_process(delta):
-	handle_controls(delta)
-	handle_gravity(delta)
-	
-	var applied_velocity: Vector3
-	
-	applied_velocity = velocity.lerp(movement_velocity, delta * 10)
-	applied_velocity.y = -y_velocity
-
-	velocity = applied_velocity
-	move_and_slide()
-
-func handle_controls(delta):
-	var input = Vector3.ZERO
-
-	input.x = Input.get_axis(\"move_left\", \"move_right\")
-	input.z = Input.get_axis(\"move_forward\", \"move_back\")
-
-	if input != Vector3.ZERO:
-		input = input.normalized()
-		$Visual.look_at(position - input, Vector3.UP)
-		
-	movement_velocity = input * movement_speed * delta
-
-func handle_gravity(delta):
-	y_velocity += gravity_speed * delta
-	
-	if y_velocity > 0 and is_on_floor():
-		y_velocity = 0
-		
-"
-
-[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_2e3qm"]
-height = 1.6
-
-[node name="Player" type="CharacterBody3D"]
-script = SubResource("GDScript_ypnqo")
-
-[node name="Visual" type="Node3D" parent="."]
-
-[node name="Character" parent="Visual" instance=ExtResource("2_7wtpm")]
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.8, 0)
-shape = SubResource("CapsuleShape3D_2e3qm")
+[node name="handSlotRight" parent="Visual/GeneralSkeleton" index="5"]
+transform = Transform3D(1, -2.98024e-08, -1.19209e-07, 2.98024e-08, 1, 0, 1.19209e-07, -7.10543e-15, 0.999999, -0.4, 0.205887, 1.29357e-07)
