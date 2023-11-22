@@ -29,7 +29,7 @@ func handle_controls(delta):
 
 	if input != Vector3.ZERO:
 		input = input.normalized()
-		$Pivot.look_at(position + input, Vector3.UP)
+		$Visual.look_at(position + input, Vector3.UP)
 		
 	movement_velocity = input * movement_speed * delta
 
