@@ -4,8 +4,57 @@
 
 [node name="Player" instance=ExtResource("1_n1nux")]
 
+[node name="GeneralSkeleton" parent="Visual" index="0"]
+bones/0/rotation = Quaternion(0, 0, 0, 1)
+bones/1/rotation = Quaternion(0.044548, -7.76252e-26, -9.89164e-18, 0.999007)
+bones/2/position = Vector3(0.14, 0.691598, -1.3027e-15)
+bones/2/rotation = Quaternion(-2.98023e-08, 2.98023e-08, 2.98023e-08, 1)
+bones/3/rotation = Quaternion(2.23517e-08, 0, -2.23517e-08, 1)
+bones/4/position = Vector3(-0.14, 0.691598, 8.40813e-15)
+bones/4/rotation = Quaternion(-0.1697, -2.98023e-08, 1.93715e-07, 0.985496)
+bones/5/rotation = Quaternion(1.78814e-07, 0.104701, 0.0371603, 0.993809)
+
+[node name="body" parent="Visual/GeneralSkeleton" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
+
+[node name="character_bear2" parent="Visual/GeneralSkeleton/body" index="0"]
+visible = false
+
+[node name="character_duck2" parent="Visual/GeneralSkeleton/body" index="2"]
+visible = false
+
+[node name="head" parent="Visual/GeneralSkeleton" index="1"]
+transform = Transform3D(1, 1.97636e-17, -8.81306e-19, -1.97636e-17, 0.996031, -0.0890076, -8.81306e-19, 0.0890076, 0.996031, 0, 0.711598, 0)
+
+[node name="character_bearHead" parent="Visual/GeneralSkeleton/head" index="0"]
+visible = false
+
+[node name="character_duckHead" parent="Visual/GeneralSkeleton/head" index="2"]
+visible = false
+
+[node name="armLeft" parent="Visual/GeneralSkeleton" index="2"]
+transform = Transform3D(1, -5.96046e-08, 5.96046e-08, 5.96046e-08, 1, 5.96046e-08, -5.96046e-08, -5.96046e-08, 1, 0.14, 0.691598, -1.3027e-15)
+
+[node name="character_bearArmLeft" parent="Visual/GeneralSkeleton/armLeft" index="0"]
+visible = false
+
+[node name="character_duckArmLeft" parent="Visual/GeneralSkeleton/armLeft" index="2"]
+visible = false
+
 [node name="handSlotLeft" parent="Visual/GeneralSkeleton" index="3"]
-transform = Transform3D(1, 1.49012e-08, 2.38418e-07, -1.49012e-08, 1, 1.3411e-07, -2.38419e-07, -1.3411e-07, 0.999999, 0.4, 0.205887, -1.26106e-07)
+transform = Transform3D(1, -1.49012e-08, 5.96045e-08, 1.49012e-08, 1, 1.49012e-08, -5.96046e-08, -1.49012e-08, 0.999999, 0.4, 0.205887, -1.26106e-07)
+
+[node name="armRight" parent="Visual/GeneralSkeleton" index="4"]
+transform = Transform3D(1, -3.71696e-07, -1.24487e-07, 3.91925e-07, 0.942404, 0.334477, -7.00678e-09, -0.334477, 0.942404, -0.14, 0.691598, 8.40813e-15)
+
+[node name="character_bearArmRight" parent="Visual/GeneralSkeleton/armRight" index="0"]
+visible = false
+
+[node name="character_duckArmRight" parent="Visual/GeneralSkeleton/armRight" index="2"]
+visible = false
 
 [node name="handSlotRight" parent="Visual/GeneralSkeleton" index="5"]
-transform = Transform3D(1, -2.98024e-08, -1.19209e-07, 2.98024e-08, 1, 0, 1.19209e-07, -7.10543e-15, 0.999999, -0.4, 0.205887, 1.29357e-07)
+transform = Transform3D(0.975314, -0.0738609, 0.208105, 2.45869e-07, 0.942404, 0.334477, -0.220824, -0.32622, 0.919138, -0.4, 0.233862, 0.162459)
+
+[node name="AnimationPlayer" parent="." index="1"]
+autoplay = "Idle"
