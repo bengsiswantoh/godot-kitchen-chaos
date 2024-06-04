@@ -1,11 +1,17 @@
-[gd_scene load_steps=2 format=3 uid="uid://dd3fuj277om1h"]
+[gd_scene load_steps=4 format=3 uid="uid://c155q6xf427iq"]
 
-[ext_resource type="PackedScene" uid="uid://bmxikj1tjml5o" path="res://Scenes/Base/character.tscn" id="1_n1nux"]
+[ext_resource type="Script" path="res://Scripts/Objects/player.gd" id="1_030e8"]
+[ext_resource type="PackedScene" uid="uid://blvm1d55rimdn" path="res://Scenes/Base/dog.tscn" id="1_fup2k"]
 
-[node name="Player" instance=ExtResource("1_n1nux")]
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_mcuss"]
+height = 1.6
 
-[node name="handSlotLeft" parent="Visual/GeneralSkeleton" index="3"]
-transform = Transform3D(1, 1.49012e-08, 2.38418e-07, -1.49012e-08, 1, 1.3411e-07, -2.38419e-07, -1.3411e-07, 0.999999, 0.4, 0.205887, -1.26106e-07)
+[node name="Player" type="CharacterBody3D" node_paths=PackedStringArray("_visual")]
+script = ExtResource("1_030e8")
+_visual = NodePath("Dog")
 
-[node name="handSlotRight" parent="Visual/GeneralSkeleton" index="5"]
-transform = Transform3D(1, -2.98024e-08, -1.19209e-07, 2.98024e-08, 1, 0, 1.19209e-07, -7.10543e-15, 0.999999, -0.4, 0.205887, 1.29357e-07)
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.8, 0)
+shape = SubResource("CapsuleShape3D_mcuss")
+
+[node name="Dog" parent="." instance=ExtResource("1_fup2k")]
