@@ -1,8 +1,9 @@
+class_name Player
 extends CharacterBody3D
 
 
 @export var _speed: float = 5.0
-@export var _visual: Node3D
+@export var _visual: Character
 
 
 var _direction: Vector3
@@ -23,10 +24,14 @@ func _physics_process(_delta: float) -> void:
 		velocity.z = move_toward(velocity.z, 0, _speed)
 
 	move_and_slide()
-	rotate_visual()
+	_rotate_visual()
 
 
-func rotate_visual() -> void:
+func is_walking() -> bool:
+	return _direction != Vector3.ZERO
+
+
+func _rotate_visual() -> void:
 	var is_moving: bool = _direction.x != 0 or _direction.z != 0
 		
 	if is_moving:
