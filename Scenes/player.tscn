@@ -1,14 +1,14 @@
 [gd_scene load_steps=4 format=3 uid="uid://c155q6xf427iq"]
 
-[ext_resource type="Script" path="res://Scripts/Objects/player.gd" id="1_030e8"]
 [ext_resource type="PackedScene" uid="uid://c432t3bxmokjx" path="res://Scenes/Base/dog.tscn" id="1_fup2k"]
+[ext_resource type="Script" path="res://Scripts/player.gd" id="1_k0lmp"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_mcuss"]
 height = 1.6
 
 [node name="Player" type="CharacterBody3D" node_paths=PackedStringArray("_visual")]
 collision_layer = 2
-script = ExtResource("1_030e8")
+script = ExtResource("1_k0lmp")
 _visual = NodePath("Visual")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
