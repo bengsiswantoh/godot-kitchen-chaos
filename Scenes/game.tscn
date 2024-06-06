@@ -1,6 +1,8 @@
-[gd_scene load_steps=7 format=3 uid="uid://eek4n544my0k"]
+[gd_scene load_steps=9 format=3 uid="uid://eek4n544my0k"]
 
 [ext_resource type="PackedScene" uid="uid://c155q6xf427iq" path="res://Scenes/Objects/player.tscn" id="1_lkm3f"]
+[ext_resource type="PackedScene" uid="uid://bmy82fp2kxohn" path="res://Scenes/Objects/clear_counter.tscn" id="2_a67jk"]
+[ext_resource type="Script" path="res://Scripts/game_input.gd" id="3_n67ka"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_kr4y7"]
 sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
@@ -23,6 +25,9 @@ points = PackedVector3Array(-5, 0, -5, -5, 0, 5, 5, 0, -5, 5, 0, 5)
 
 [node name="Game" type="Node3D"]
 
+[node name="GameInput" type="Node3D" parent="."]
+script = ExtResource("3_n67ka")
+
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_exbwb")
 
@@ -31,17 +36,23 @@ transform = Transform3D(-0.866025, -0.409576, -0.286788, 0, -0.573576, 0.819152,
 shadow_enabled = true
 
 [node name="Camera3D" type="Camera3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 0.694658, 0.71934, 0, -0.71934, 0.694658, 0, 21.5, 21.3)
+transform = Transform3D(1, 0, 0, 0, 0.707107, 0.707107, 0, -0.707107, 0.707107, 0, 21.5, 21.3)
 fov = 20.0
 
-[node name="Floor" type="MeshInstance3D" parent="."]
+[node name="World" type="Node3D" parent="."]
+
+[node name="Floor" type="MeshInstance3D" parent="World"]
 mesh = SubResource("PlaneMesh_0ruk0")
 skeleton = NodePath("")
 
-[node name="StaticBody3D" type="StaticBody3D" parent="Floor"]
+[node name="StaticBody3D" type="StaticBody3D" parent="World/Floor"]
 collision_mask = 0
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Floor/StaticBody3D"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="World/Floor/StaticBody3D"]
 shape = SubResource("ConvexPolygonShape3D_864tn")
 
-[node name="Player" parent="." instance=ExtResource("1_lkm3f")]
+[node name="ClearCounter" parent="World" instance=ExtResource("2_a67jk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 0, 0)
+
+[node name="Player" parent="." node_paths=PackedStringArray("_game_input") instance=ExtResource("1_lkm3f")]
+_game_input = NodePath("../GameInput")
