@@ -1,10 +1,11 @@
-[gd_scene load_steps=11 format=3 uid="uid://eek4n544my0k"]
+[gd_scene load_steps=12 format=3 uid="uid://eek4n544my0k"]
 
 [ext_resource type="PackedScene" uid="uid://c155q6xf427iq" path="res://Scenes/player.tscn" id="1_lkm3f"]
 [ext_resource type="PackedScene" uid="uid://cackfk63npidm" path="res://Scenes/Counters/clear_counter.tscn" id="2_a67jk"]
 [ext_resource type="Script" path="res://Scripts/game_input.gd" id="3_n67ka"]
 [ext_resource type="Resource" uid="uid://iopudq8rhtwf" path="res://Resources/KitchenObjects/cheese.tres" id="4_a6tsb"]
-[ext_resource type="PackedScene" uid="uid://bajd2jmnwhbmw" path="res://Scenes/Counters/container_counter.tscn" id="5_pg488"]
+[ext_resource type="PackedScene" uid="uid://bajd2jmnwhbmw" path="res://Scenes/Counters/container_counter_tomato.tscn" id="5_pg488"]
+[ext_resource type="PackedScene" uid="uid://ce4v1csmmx5t3" path="res://Scenes/Counters/container_counter_cheese.tscn" id="6_mj4ep"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_kr4y7"]
 sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
@@ -62,3 +63,6 @@ _kitchen_object_resource = ExtResource("4_a6tsb")
 
 [node name="ContainerCounter" parent="." instance=ExtResource("5_pg488")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.407, -4.76837e-07, 0.0621943)
+
+[node name="ContainerCounterCheese" parent="." instance=ExtResource("6_mj4ep")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -4.21047)

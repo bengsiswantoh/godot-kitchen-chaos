@@ -3,7 +3,7 @@
 [ext_resource type="Texture2D" uid="uid://bb7j6bgsrwy0f" path="res://Assets/KayKit_Restaurant_Bits_1.0_FREE/restaurantbits_texture.png" id="1_d5d28"]
 [ext_resource type="Script" path="res://Scripts/Counters/clear_counter.gd" id="1_jtqbp"]
 [ext_resource type="PackedScene" uid="uid://csf2u2q10etrc" path="res://Scenes/Counters/base_counter.tscn" id="1_obdnt"]
-[ext_resource type="Script" path="res://Scripts/selected_counter_visual.gd" id="3_ob038"]
+[ext_resource type="Script" path="res://Scripts/Counters/selected_counter_visual.gd" id="3_ob038"]
 [ext_resource type="Material" uid="uid://cve8ao2vcy0ya" path="res://Resources/Materials/outline.tres" id="4_obhv6"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_7yoy7"]
