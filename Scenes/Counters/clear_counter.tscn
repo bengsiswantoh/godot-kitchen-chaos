@@ -48,6 +48,7 @@ blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_x0qmg")
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_h111o"]
+albedo_color = Color(0, 0, 0, 1)
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_2j643"]
 _surfaces = [{
@@ -76,11 +77,12 @@ shape = SubResource("ConvexPolygonShape3D_pr026")
 mesh = SubResource("ArrayMesh_uj8gl")
 skeleton = NodePath("")
 
-[node name="Outline" type="MeshInstance3D" parent="."]
+[node name="Outline" type="MeshInstance3D" parent="." node_paths=PackedStringArray("_clear_counter")]
 visible = false
 mesh = SubResource("ArrayMesh_2j643")
 skeleton = NodePath("../kitchencounter_straight_A")
 script = ExtResource("3_ob038")
+_clear_counter = NodePath("..")
 
 [node name="CounterTopPoint" type="Marker3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.1, 0)

@@ -1,10 +1,9 @@
-[gd_scene load_steps=11 format=3 uid="uid://eek4n544my0k"]
+[gd_scene load_steps=10 format=3 uid="uid://eek4n544my0k"]
 
 [ext_resource type="PackedScene" uid="uid://c155q6xf427iq" path="res://Scenes/player.tscn" id="1_lkm3f"]
 [ext_resource type="PackedScene" uid="uid://bmy82fp2kxohn" path="res://Scenes/Counters/clear_counter.tscn" id="2_a67jk"]
 [ext_resource type="Script" path="res://Scripts/game_input.gd" id="3_n67ka"]
-[ext_resource type="Resource" uid="uid://cs80raceeeyk4" path="res://Resources/KitchenObjects/tomato.tres" id="3_tp2r7"]
-[ext_resource type="Resource" uid="uid://bnljbfqqr62a6" path="res://Resources/KitchenObjects/cheese_block.tres" id="3_uy3n2"]
+[ext_resource type="Resource" uid="uid://cek3ux0ygfibl" path="res://Resources/KitchenObjects/tomato.tres" id="4_57ecd"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_kr4y7"]
 sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
@@ -53,14 +52,9 @@ collision_mask = 0
 [node name="CollisionShape3D" type="CollisionShape3D" parent="World/Floor/StaticBody3D"]
 shape = SubResource("ConvexPolygonShape3D_864tn")
 
-[node name="ClearCounter" parent="World" instance=ExtResource("2_a67jk")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 0, 0)
-_kitchen_object_resource = ExtResource("3_tp2r7")
-
-[node name="ClearCounter2" parent="World" node_paths=PackedStringArray("_counter_top_point") instance=ExtResource("2_a67jk")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3, 0, 0)
-_kitchen_object_resource = ExtResource("3_uy3n2")
-_counter_top_point = NodePath("../ClearCounter/CounterTopPoint")
-
 [node name="Player" parent="." node_paths=PackedStringArray("_game_input") instance=ExtResource("1_lkm3f")]
 _game_input = NodePath("../GameInput")
+
+[node name="ClearCounter" parent="." instance=ExtResource("2_a67jk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 0, 0)
+_kitchen_object_resource = ExtResource("4_57ecd")

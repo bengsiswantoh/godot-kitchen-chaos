@@ -25,7 +25,7 @@ var _selected_counter: ClearCounter
 
 func _enter_tree() -> void:
 	if _instance:
-		print('There is more than one Player instance')
+		printerr('There is more than one Player instance')
 	
 	_instance = self
 
