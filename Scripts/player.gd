@@ -7,7 +7,7 @@ static var instance: Player:
 		return _instance
 
 
-signal selected_counter_changed(selected_counter: ClearCounter)
+signal selected_counter_changed(selected_counter: BaseCounter)
 
 
 @export var _speed: float = 5.0
@@ -19,7 +19,7 @@ signal selected_counter_changed(selected_counter: ClearCounter)
 var _kitchen_object: KitchenObject
 var _direction: Vector3
 var _facing_angle: float
-var _selected_counter: ClearCounter
+var _selected_counter: BaseCounter
 
 
 @onready var _ray_cast_3d: RayCast3D = $Visual/RayCast3D
@@ -47,10 +47,10 @@ func is_walking() -> bool:
 
 func _handle_interactions() -> void:
 	if _ray_cast_3d.is_colliding():
-		var clear_counter = _ray_cast_3d.get_collider()
-		if clear_counter is ClearCounter:
-			if clear_counter != _selected_counter:
-				_set_selected_counter(clear_counter)
+		var base_counter = _ray_cast_3d.get_collider()
+		if base_counter is BaseCounter:
+			if base_counter != _selected_counter:
+				_set_selected_counter(base_counter)
 		else:
 			_set_selected_counter(null)
 	else:
@@ -83,7 +83,7 @@ func _on_interact_pressed() -> void:
 		_selected_counter.interact(self)
 		
 		
-func _set_selected_counter(selected_counter: ClearCounter) -> void:
+func _set_selected_counter(selected_counter: BaseCounter) -> void:
 	_selected_counter = selected_counter
 	selected_counter_changed.emit(_selected_counter)
 	

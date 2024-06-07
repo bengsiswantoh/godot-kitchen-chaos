@@ -1,0 +1,14 @@
+[gd_scene load_steps=2 format=3 uid="uid://csf2u2q10etrc"]
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_pr026"]
+points = PackedVector3Array(1, 0.94998, 0.99993, -1, 0.94998, 0.99993, -0.000195742, 0.549922, 1.0419, 1, 0.849941, 0.99993, 1, 1, 0.949961, -1, 0.849941, 0.99993, -1, 1, 0.949961, -0.000195742, 0.249902, 1.0419, 0.859828, 0.139977, 0.949961, 1, 0, 0.799857, 1, 1, -1, -0.860023, 0.139977, 0.949961, -1, 0, 0.799857, -1, 1, -1, -0.000195742, 0.190877, 1.02391, 0.859828, 0.0999413, 0.909987, 1, 0, -1, -0.860023, 0.0999413, 0.909987, -1, 0, -1)
+
+[node name="BaseCounter" type="StaticBody3D"]
+collision_layer = 5
+collision_mask = 0
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("ConvexPolygonShape3D_pr026")
+
+[node name="CounterTopPoint" type="Marker3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.1, 0)

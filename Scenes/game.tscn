@@ -1,9 +1,10 @@
-[gd_scene load_steps=10 format=3 uid="uid://eek4n544my0k"]
+[gd_scene load_steps=11 format=3 uid="uid://eek4n544my0k"]
 
 [ext_resource type="PackedScene" uid="uid://c155q6xf427iq" path="res://Scenes/player.tscn" id="1_lkm3f"]
-[ext_resource type="PackedScene" uid="uid://bmy82fp2kxohn" path="res://Scenes/Counters/clear_counter.tscn" id="2_a67jk"]
+[ext_resource type="PackedScene" uid="uid://cackfk63npidm" path="res://Scenes/Counters/clear_counter.tscn" id="2_a67jk"]
 [ext_resource type="Script" path="res://Scripts/game_input.gd" id="3_n67ka"]
-[ext_resource type="Resource" uid="uid://cek3ux0ygfibl" path="res://Resources/KitchenObjects/tomato.tres" id="4_57ecd"]
+[ext_resource type="Resource" uid="uid://iopudq8rhtwf" path="res://Resources/KitchenObjects/cheese.tres" id="4_a6tsb"]
+[ext_resource type="PackedScene" uid="uid://bajd2jmnwhbmw" path="res://Scenes/Counters/container_counter.tscn" id="5_pg488"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_kr4y7"]
 sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
@@ -53,9 +54,11 @@ collision_mask = 0
 shape = SubResource("ConvexPolygonShape3D_864tn")
 
 [node name="Player" parent="." node_paths=PackedStringArray("_game_input") instance=ExtResource("1_lkm3f")]
-_speed = 5.0
 _game_input = NodePath("../GameInput")
 
 [node name="ClearCounter" parent="." instance=ExtResource("2_a67jk")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 0, 0)
-_kitchen_object_resource = ExtResource("4_57ecd")
+_kitchen_object_resource = ExtResource("4_a6tsb")
+
+[node name="ContainerCounter" parent="." instance=ExtResource("5_pg488")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.407, -4.76837e-07, 0.0621943)

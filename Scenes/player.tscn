@@ -25,4 +25,4 @@ collision_mask = 4
 [node name="Dog" parent="Visual" instance=ExtResource("1_fup2k")]
 
 [node name="Marker3D" type="Marker3D" parent="Visual"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.4, 0.8)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.4, 1)
