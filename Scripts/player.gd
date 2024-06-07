@@ -13,8 +13,10 @@ signal selected_counter_changed(selected_counter: ClearCounter)
 @export var _speed: float = 5.0
 @export var _visual: Node3D
 @export var _game_input: GameInput
+@export var _kitchen_object_hold_point: Marker3D
 
 
+var _kitchen_object: KitchenObject
 var _direction: Vector3
 var _facing_angle: float
 var _selected_counter: ClearCounter
@@ -53,6 +55,7 @@ func _handle_interactions() -> void:
 			_set_selected_counter(null)
 	else:
 		_set_selected_counter(null)
+
 		
 func _handle_movement() -> void:
 	_direction = _game_input.get_movement_direction()
@@ -77,9 +80,29 @@ func _rotate_visual() -> void:
 
 func _on_interact_pressed() -> void:
 	if _selected_counter:
-		_selected_counter.interact()
+		_selected_counter.interact(self)
+		
 		
 func _set_selected_counter(selected_counter: ClearCounter) -> void:
 	_selected_counter = selected_counter
 	selected_counter_changed.emit(_selected_counter)
 	
+	
+func get_kitchen_object_follow_position() -> Marker3D:
+	return _kitchen_object_hold_point
+
+		
+func set_kitchen_object(kitchen_object: KitchenObject) -> void:
+	_kitchen_object = kitchen_object
+
+
+func get_kitchen_object() -> KitchenObject:
+	return _kitchen_object	
+
+
+func clear_kitchen_object() -> void:
+	_kitchen_object = null
+	
+
+func has_kitchen_object() -> bool:
+	return _kitchen_object != null

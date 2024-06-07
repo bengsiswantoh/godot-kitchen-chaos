@@ -6,10 +6,11 @@
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_mcuss"]
 height = 1.6
 
-[node name="Player" type="CharacterBody3D" node_paths=PackedStringArray("_visual")]
+[node name="Player" type="CharacterBody3D" node_paths=PackedStringArray("_visual", "_kitchen_object_hold_point")]
 collision_layer = 2
 script = ExtResource("1_k0lmp")
 _visual = NodePath("Visual")
+_kitchen_object_hold_point = NodePath("Visual/Marker3D")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.8, 0)
@@ -22,3 +23,6 @@ target_position = Vector3(0, 0, 2)
 collision_mask = 4
 
 [node name="Dog" parent="Visual" instance=ExtResource("1_fup2k")]
+
+[node name="Marker3D" type="Marker3D" parent="Visual"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.4, 0.8)

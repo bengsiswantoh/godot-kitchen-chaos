@@ -5,23 +5,31 @@ extends Node3D
 var kitchen_object_resource: KitchenObjectResource
 
 
-var _clear_counter: ClearCounter
+var _kitchen_object_parent: Node3D
 
 
-func set_clear_counter(clear_counter: ClearCounter) -> void:
-	if (_clear_counter):
-		_clear_counter.clear_kitchen_object()
-		
-	_clear_counter = clear_counter
+func set_kitchen_object_parent(parent: Node3D) -> void:
+	if (_kitchen_object_parent):
+		_kitchen_object_parent.clear_kitchen_object()
 	
-	if clear_counter.has_kitchen_object():
+	if not parent.has_method("has_kitchen_object"):
+		return
+	
+	_kitchen_object_parent = parent
+	
+	if parent.has_kitchen_object():
 		printerr("Counter already has a KitchenObject!")
 	
-	clear_counter.set_kitchen_object(self)
-	
-	clear_counter.add_child(self)
-	position = clear_counter.get_kitchen_object_follow_position()
+	parent.set_kitchen_object(self)
 	
 	
-func get_clear_counter() -> ClearCounter:
-	return _clear_counter
+	if get_parent() != null:
+		reparent(parent.get_kitchen_object_follow_position())
+	else:
+		parent.get_kitchen_object_follow_position().add_child(self)
+		
+	position = Vector3.ZERO
+	
+	
+func get_kitchen_object_parent() -> Node3D:
+	return _kitchen_object_parent

@@ -53,6 +53,7 @@ collision_mask = 0
 shape = SubResource("ConvexPolygonShape3D_864tn")
 
 [node name="Player" parent="." node_paths=PackedStringArray("_game_input") instance=ExtResource("1_lkm3f")]
+_speed = 5.0
 _game_input = NodePath("../GameInput")
 
 [node name="ClearCounter" parent="." instance=ExtResource("2_a67jk")]
