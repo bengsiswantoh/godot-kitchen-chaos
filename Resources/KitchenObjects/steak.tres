@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="KitchenObjectResource" load_steps=3 format=3 uid="uid://5i32y4t6nsca"]
+
+[ext_resource type="Script" path="res://Scripts/Resources/kitchen_object_resource.gd" id="1_c2mxv"]
+[ext_resource type="PackedScene" uid="uid://burjtuhels62r" path="res://Scenes/KitchenObjects/steak.tscn" id="1_stdrx"]
+
+[resource]
+script = ExtResource("1_c2mxv")
+scene = ExtResource("1_stdrx")
+object_name = "Steak"

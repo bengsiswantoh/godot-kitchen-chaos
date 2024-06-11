@@ -3,6 +3,7 @@ extends Node3D
 
 
 signal interact_pressed
+signal interact_alternate_pressed
 
 
 var _direction: Vector3
@@ -14,6 +15,9 @@ func _input(_event: InputEvent) -> void:
 	
 	if Input.is_action_just_pressed("interact"):
 		interact_pressed.emit()
+		
+	if Input.is_action_just_pressed("interact_alternate"):
+		interact_alternate_pressed.emit()
 	
 	
 func get_movement_direction() -> Vector3:

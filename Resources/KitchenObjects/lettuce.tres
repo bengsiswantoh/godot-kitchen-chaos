@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="KitchenObjectResource" load_steps=3 format=3 uid="uid://bdxqauw5adpg0"]
+
+[ext_resource type="Script" path="res://Scripts/Resources/kitchen_object_resource.gd" id="1_8o2y1"]
+[ext_resource type="PackedScene" uid="uid://cveq566mtmr1x" path="res://Scenes/KitchenObjects/lettuce.tscn" id="1_ut82n"]
+
+[resource]
+script = ExtResource("1_8o2y1")
+scene = ExtResource("1_ut82n")
+object_name = "Lettuce"

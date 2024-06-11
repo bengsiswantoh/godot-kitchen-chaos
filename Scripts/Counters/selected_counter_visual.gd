@@ -2,10 +2,12 @@ class_name SelectedCounterVisual
 extends MeshInstance3D
 
 
-@export var _base_counter: BaseCounter
+var _base_counter: BaseCounter
 
 
 func _ready() -> void:
+	_base_counter = owner
+	
 	Player.instance.selected_counter_changed.connect(_on_player_selected_counter_changed)
 
 

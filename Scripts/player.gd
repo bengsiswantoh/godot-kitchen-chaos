@@ -34,6 +34,7 @@ func _enter_tree() -> void:
 
 func _ready() -> void:	
 	_game_input.interact_pressed.connect(_on_interact_pressed)
+	_game_input.interact_alternate_pressed.connect(_on_interact_alternate_pressed)
 
 
 func _physics_process(_delta: float) -> void:
@@ -81,6 +82,11 @@ func _rotate_visual() -> void:
 func _on_interact_pressed() -> void:
 	if _selected_counter:
 		_selected_counter.interact(self)
+		
+
+func _on_interact_alternate_pressed() -> void:
+	if _selected_counter:
+		_selected_counter.interact_alternate(self)
 		
 		
 func _set_selected_counter(selected_counter: BaseCounter) -> void:

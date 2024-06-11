@@ -10,6 +10,10 @@ var _kitchen_object: KitchenObject
 
 func interact(_player: Player) -> void:
 	pass
+	
+	
+func interact_alternate(_player: Player) -> void:
+	pass
 
 
 func get_kitchen_object_follow_position() -> Marker3D:

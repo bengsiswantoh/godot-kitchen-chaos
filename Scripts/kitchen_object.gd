@@ -8,6 +8,11 @@ var kitchen_object_resource: KitchenObjectResource
 var _kitchen_object_parent: Node3D
 
 
+static func spawn_kitchen_object(kitchen_object_resource: KitchenObjectResource, kitchen_object_parent: Node3D) -> void:
+	var new_kitchen_object = kitchen_object_resource.create_scene() as KitchenObject
+	new_kitchen_object.set_kitchen_object_parent(kitchen_object_parent)
+
+
 func set_kitchen_object_parent(parent: Node3D) -> void:
 	if (_kitchen_object_parent):
 		_kitchen_object_parent.clear_kitchen_object()
@@ -33,3 +38,8 @@ func set_kitchen_object_parent(parent: Node3D) -> void:
 	
 func get_kitchen_object_parent() -> Node3D:
 	return _kitchen_object_parent
+
+
+func destory_self() -> void:
+	_kitchen_object_parent.clear_kitchen_object()
+	queue_free()

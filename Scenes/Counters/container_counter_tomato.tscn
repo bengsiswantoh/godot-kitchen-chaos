@@ -71,8 +71,7 @@ counter_top_point = NodePath("CounterTopPoint")
 mesh = SubResource("ArrayMesh_w66hv")
 skeleton = NodePath("")
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="crate_tomatoes/crate_tomatoes2" index="0" node_paths=PackedStringArray("_base_counter")]
+[node name="MeshInstance3D" type="MeshInstance3D" parent="crate_tomatoes/crate_tomatoes2" index="0"]
 visible = false
 mesh = SubResource("ArrayMesh_jd0k6")
 script = ExtResource("3_u5kuq")
-_base_counter = NodePath("../../..")

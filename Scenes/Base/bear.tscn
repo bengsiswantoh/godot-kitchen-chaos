@@ -176,19 +176,37 @@ shadow_mesh = SubResource("ArrayMesh_nbfkc")
 
 [node name="Bear" instance=ExtResource("1_rxwc4")]
 
+[node name="GeneralSkeleton" parent="." index="0"]
+bones/0/rotation = Quaternion(-0.00238224, -3.32041e-28, 3.7984e-18, 0.999997)
+bones/1/rotation = Quaternion(0.0479466, -3.33426e-26, -1.53714e-17, 0.99885)
+bones/2/rotation = Quaternion(-5.69536e-08, -0.000192844, 0.00563768, 0.999984)
+bones/4/rotation = Quaternion(-0.169698, 0.000724738, -0.00349072, 0.98549)
+
+[node name="Body" parent="GeneralSkeleton" index="0"]
+transform = Transform3D(1, -7.59677e-18, -1.80974e-20, 7.59677e-18, 0.999989, 0.00476446, -1.80974e-20, -0.00476446, 0.999989, 0, 0, 0)
+
 [node name="character_bear2" type="MeshInstance3D" parent="GeneralSkeleton/Body" index="0"]
 mesh = SubResource("ArrayMesh_kkpbh")
 skeleton = NodePath("")
 
-[node name="character_bearHead" type="MeshInstance3D" parent="GeneralSkeleton" index="2"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.703711, 0)
+[node name="Head" parent="GeneralSkeleton" index="1"]
+transform = Transform3D(1, 2.31439e-17, -7.64389e-19, -2.31174e-17, 0.995847, -0.0910393, -1.34579e-18, 0.0910393, 0.995847, -5.40585e-18, 0.71159, -0.00339038)
+
+[node name="character_bearHead" type="MeshInstance3D" parent="GeneralSkeleton/Head" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.00788701, 0)
 mesh = SubResource("ArrayMesh_gxpsp")
 skeleton = NodePath("")
+
+[node name="ArmLeft" parent="GeneralSkeleton" index="2"]
+transform = Transform3D(0.999936, -0.0112752, -0.000385682, 0.0112769, 0.999925, 0.0047624, 0.000331956, -0.00476645, 0.999989, 0.14, 0.69159, -0.00329509)
 
 [node name="character_bearArmLeft" type="MeshInstance3D" parent="GeneralSkeleton/ArmLeft" index="0"]
 transform = Transform3D(1, 5.96046e-08, -5.96046e-08, -5.96046e-08, 1, -5.96046e-08, 5.96046e-08, 5.96046e-08, 1, 0.0640448, -0.0580416, 3.57815e-10)
 mesh = SubResource("ArrayMesh_y1wx7")
 skeleton = NodePath("")
+
+[node name="ArmRight" parent="GeneralSkeleton" index="3"]
+transform = Transform3D(0.999975, 0.00663416, 0.00261318, -0.00712719, 0.940776, 0.338953, -0.00020975, -0.338963, 0.9408, -0.14, 0.69159, -0.00329509)
 
 [node name="character_bearArmRight" type="MeshInstance3D" parent="GeneralSkeleton/ArmRight" index="0"]
 transform = Transform3D(1, -4.47034e-08, 5.96046e-08, 4.47034e-08, 1, -4.47034e-08, -5.96046e-08, 4.47034e-08, 1, -0.064046, -0.0580417, 1.22277e-09)
