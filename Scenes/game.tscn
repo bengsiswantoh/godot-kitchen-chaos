@@ -60,32 +60,40 @@ shape = SubResource("ConvexPolygonShape3D_864tn")
 [node name="Player" parent="." node_paths=PackedStringArray("_game_input") instance=ExtResource("1_lkm3f")]
 _game_input = NodePath("../GameInput")
 
-[node name="ContainerCounter" parent="." instance=ExtResource("5_pg488")]
+[node name="Counters" type="Node3D" parent="."]
+
+[node name="ContainerCounter" parent="Counters" instance=ExtResource("5_pg488")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0, -5)
 
-[node name="ContainerCounterCheese" parent="." instance=ExtResource("6_mj4ep")]
+[node name="ContainerCounterCheese" parent="Counters" instance=ExtResource("6_mj4ep")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -5)
 
-[node name="ContainerCounterLettuce" parent="." instance=ExtResource("7_iierp")]
+[node name="ContainerCounterLettuce" parent="Counters" instance=ExtResource("7_iierp")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, -5)
 
-[node name="ContainerCounterBun" parent="." instance=ExtResource("6_v03ew")]
+[node name="ContainerCounterBun" parent="Counters" instance=ExtResource("6_v03ew")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 0, -5)
 
-[node name="ContainerCounterSteak" parent="." instance=ExtResource("7_ujsyv")]
+[node name="ContainerCounterSteak" parent="Counters" instance=ExtResource("7_ujsyv")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 0, -5)
 
-[node name="ClearCounter" parent="." instance=ExtResource("2_a67jk")]
+[node name="ClearCounter" parent="Counters" instance=ExtResource("2_a67jk")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 6, 0, -3)
 
-[node name="ClearCounter2" parent="." instance=ExtResource("2_a67jk")]
+[node name="ClearCounter2" parent="Counters" instance=ExtResource("2_a67jk")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 6, 0, -1)
 
-[node name="ClearCounter3" parent="." instance=ExtResource("2_a67jk")]
+[node name="ClearCounter3" parent="Counters" instance=ExtResource("2_a67jk")]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -6, 0, -3)
 
-[node name="ClearCounter4" parent="." instance=ExtResource("2_a67jk")]
+[node name="ClearCounter4" parent="Counters" instance=ExtResource("2_a67jk")]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -6, 0, -1)
 
-[node name="CuttingCounter" parent="." instance=ExtResource("9_052i8")]
+[node name="CuttingCounter" parent="Counters" instance=ExtResource("9_052i8")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 6, 0, 1)
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0

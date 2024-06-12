@@ -1,10 +1,11 @@
 [gd_resource type="Resource" script_class="CuttingRecipeResource" load_steps=4 format=3 uid="uid://dfmg61h0bkkcq"]
 
-[ext_resource type="Resource" uid="uid://cek3ux0ygfibl" path="res://Resources/KitchenObjects/tomato.tres" id="1_43af4"]
-[ext_resource type="Resource" uid="uid://b01mde8bblkgc" path="res://Resources/KitchenObjects/tomato_slices.tres" id="2_62w3q"]
+[ext_resource type="Resource" uid="uid://bdxqauw5adpg0" path="res://Resources/KitchenObjects/lettuce.tres" id="1_mrggg"]
+[ext_resource type="Resource" uid="uid://c0jx18ewmxrcg" path="res://Resources/KitchenObjects/lettuce_slice.tres" id="2_h5sb5"]
 [ext_resource type="Script" path="res://Scripts/Resources/cutting_recipe_resource.gd" id="3_pllxr"]
 
 [resource]
 script = ExtResource("3_pllxr")
-input = ExtResource("1_43af4")
-output = ExtResource("2_62w3q")
+input = ExtResource("1_mrggg")
+output = ExtResource("2_h5sb5")
+cutting_progress_max = 5
