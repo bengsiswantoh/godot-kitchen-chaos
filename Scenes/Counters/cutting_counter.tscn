@@ -1,11 +1,14 @@
-[gd_scene load_steps=11 format=3 uid="uid://dovbb23wq4t6u"]
+[gd_scene load_steps=14 format=3 uid="uid://dovbb23wq4t6u"]
 
 [ext_resource type="PackedScene" uid="uid://csf2u2q10etrc" path="res://Scenes/Counters/base_counter.tscn" id="1_do1ny"]
 [ext_resource type="Script" path="res://Scripts/Counters/cutting_counter.gd" id="2_vl8rt"]
+[ext_resource type="Resource" uid="uid://2bsm0lul4yxy" path="res://Resources/CuttingRecipes/cheese_to_cheese_slice.tres" id="3_7v40r"]
 [ext_resource type="PackedScene" uid="uid://dalb0sjpsq25r" path="res://Assets/KayKit_Restaurant_Bits_1.0_FREE/cuttingboard.gltf" id="3_16im2"]
 [ext_resource type="Texture2D" uid="uid://bb7j6bgsrwy0f" path="res://Assets/KayKit_Restaurant_Bits_1.0_FREE/restaurantbits_texture.png" id="3_ofk5t"]
+[ext_resource type="Resource" uid="uid://dfmg61h0bkkcq" path="res://Resources/CuttingRecipes/lettuce_to_lettuce_slice.tres" id="4_pklg0"]
 [ext_resource type="Material" uid="uid://cve8ao2vcy0ya" path="res://Resources/Materials/outline.tres" id="4_v4pm1"]
 [ext_resource type="Script" path="res://Scripts/Counters/selected_counter_visual.gd" id="5_504ks"]
+[ext_resource type="Resource" uid="uid://baiaooq7u5tm" path="res://Resources/CuttingRecipes/tomato_to_tomato_slices.tres" id="5_dp6yf"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_7yoy7"]
 resource_name = "restaurant"
@@ -62,7 +65,11 @@ _surfaces = [{
 
 [node name="CuttingCounter" node_paths=PackedStringArray("counter_top_point") instance=ExtResource("1_do1ny")]
 script = ExtResource("2_vl8rt")
+cutting_recipe_list = Array[Resource("res://Scripts/Resources/cutting_recipe_resource.gd")]([ExtResource("3_7v40r"), ExtResource("4_pklg0"), ExtResource("5_dp6yf")])
 counter_top_point = NodePath("CounterTopPoint")
+
+[node name="CounterTopPoint" parent="." index="1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.2, 0)
 
 [node name="cuttingboard" parent="." index="2" instance=ExtResource("3_16im2")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)

@@ -8,8 +8,8 @@ var kitchen_object_resource: KitchenObjectResource
 var _kitchen_object_parent: Node3D
 
 
-static func spawn_kitchen_object(kitchen_object_resource: KitchenObjectResource, kitchen_object_parent: Node3D) -> void:
-	var new_kitchen_object = kitchen_object_resource.create_scene() as KitchenObject
+static func spawn_kitchen_object(kitchen_object_resource_to_spawn: KitchenObjectResource, kitchen_object_parent: Node3D) -> void:
+	var new_kitchen_object = kitchen_object_resource_to_spawn.create_scene() as KitchenObject
 	new_kitchen_object.set_kitchen_object_parent(kitchen_object_parent)
 
 

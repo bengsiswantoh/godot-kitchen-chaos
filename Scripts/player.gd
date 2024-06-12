@@ -11,7 +11,6 @@ signal selected_counter_changed(selected_counter: BaseCounter)
 
 
 @export var _speed: float = 5.0
-@export var _visual: Node3D
 @export var _game_input: GameInput
 @export var _kitchen_object_hold_point: Marker3D
 
@@ -22,7 +21,7 @@ var _facing_angle: float
 var _selected_counter: BaseCounter
 
 
-@onready var _ray_cast_3d: RayCast3D = $Visual/RayCast3D
+@onready var _ray_cast_3d: RayCast3D = $RayCast3D
 
 
 func _enter_tree() -> void:
@@ -76,7 +75,7 @@ func _rotate_visual() -> void:
 		
 	if is_moving:
 		_facing_angle = Vector2(_direction.z, _direction.x).angle()
-		_visual.rotation.y = lerp_angle(_visual.rotation.y, _facing_angle, 0.5)
+		rotation.y = lerp_angle(rotation.y, _facing_angle, 0.5)
 
 
 func _on_interact_pressed() -> void:

@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="KitchenObjectResource" load_steps=3 format=3 uid="uid://b44ifbadbsaon"]
+
+[ext_resource type="PackedScene" uid="uid://c8rars4ybucxn" path="res://Scenes/KitchenObjects/cheese_slice.tscn" id="1_rl7ol"]
+[ext_resource type="Script" path="res://Scripts/Resources/kitchen_object_resource.gd" id="2_j23of"]
+
+[resource]
+script = ExtResource("2_j23of")
+scene = ExtResource("1_rl7ol")
+object_name = "Cheese Slice"
