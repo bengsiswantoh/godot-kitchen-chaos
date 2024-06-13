@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://eek4n544my0k"]
+[gd_scene load_steps=16 format=3 uid="uid://eek4n544my0k"]
 
 [ext_resource type="PackedScene" uid="uid://c155q6xf427iq" path="res://Scenes/player.tscn" id="1_lkm3f"]
 [ext_resource type="PackedScene" uid="uid://cackfk63npidm" path="res://Scenes/Counters/clear_counter.tscn" id="2_a67jk"]
@@ -9,6 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://cvd3ilmjhemgs" path="res://Scenes/Counters/container_counter_lettuce.tscn" id="7_iierp"]
 [ext_resource type="PackedScene" uid="uid://dtohntvcvr082" path="res://Scenes/Counters/container_counter_steak.tscn" id="7_ujsyv"]
 [ext_resource type="PackedScene" uid="uid://dovbb23wq4t6u" path="res://Scenes/Counters/cutting_counter.tscn" id="9_052i8"]
+[ext_resource type="PackedScene" uid="uid://l3ml20e8dnhc" path="res://Scenes/Counters/trash_counter.tscn" id="10_gk85u"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_kr4y7"]
 sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
@@ -91,6 +92,9 @@ transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -6, 0,
 
 [node name="CuttingCounter" parent="Counters" instance=ExtResource("9_052i8")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 6, 0, 1)
+
+[node name="TrashCounter" parent="Counters" instance=ExtResource("10_gk85u")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6, 0, 1)
 
 [node name="Control" type="Control" parent="."]
 layout_mode = 3
