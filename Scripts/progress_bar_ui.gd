@@ -1,27 +1,23 @@
-extends ProgressBar
+extends Node3D
 
 
-var _cutting_counter: CuttingCounter
+@export var has_progress_changed: Node
 
 
-@onready var background: Polygon2D = $"../Background"
+@onready var progress_bar: ProgressBar = $SubViewport/ProgressBar
 
 
 func _ready() -> void:
-	value = 0
+	progress_bar.value = 0
 	hide()
-	background.hide()
 	
-	_cutting_counter = owner
-	
-	_cutting_counter.progress_changed.connect(_on_progress_changed)
+	if has_progress_changed.has_signal("progress_changed"):
+		has_progress_changed.progress_changed.connect(_on_object_progress_changed)
 	
 	
-func _on_progress_changed(progress: float) -> void:
-	value = progress
+func _on_object_progress_changed(progress: float) -> void:
+	progress_bar.value = progress
 	
 	show()
-	background.show()
-	if value == 0 or value == 1:
+	if progress_bar.value == 0 or progress_bar.value == 1:
 		hide()
-		background.hide()

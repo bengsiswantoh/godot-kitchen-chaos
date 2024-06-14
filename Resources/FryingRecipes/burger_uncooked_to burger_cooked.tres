@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="FryingRecipeResource" load_steps=4 format=3 uid="uid://dak577hq2ew8b"]
+
+[ext_resource type="Resource" uid="uid://cr3crmhmrxmuf" path="res://Resources/KitchenObjects/burger_uncooked.tres" id="1_kk4pp"]
+[ext_resource type="Script" path="res://Scripts/Resources/frying_recipe_resource.gd" id="1_rd4v7"]
+[ext_resource type="Resource" uid="uid://des80drath6xb" path="res://Resources/KitchenObjects/burger_cooked.tres" id="2_5ig3f"]
+
+[resource]
+script = ExtResource("1_rd4v7")
+input = ExtResource("1_kk4pp")
+output = ExtResource("2_5ig3f")
+frying_timer_max = 3.0

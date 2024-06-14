@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://c5d50totf3kgy"]
+
+[ext_resource type="Script" path="res://Scripts/kitchen_object.gd" id="1_5asx8"]
+[ext_resource type="PackedScene" uid="uid://co77oh012est2" path="res://Assets/KayKit_Restaurant_Bits_1.0_FREE/food_ingredient_burger_cooked.gltf" id="2_kg2c1"]
+
+[node name="BurgerCooked" type="Node3D"]
+script = ExtResource("1_5asx8")
+
+[node name="food_ingredient_burger_cooked" parent="." instance=ExtResource("2_kg2c1")]

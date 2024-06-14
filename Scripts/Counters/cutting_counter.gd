@@ -19,12 +19,14 @@ func interact(player: Player) -> void:
 				player.get_kitchen_object().set_kitchen_object_parent(self)
 				_cutting_progress = 0
 				
-				var cutting_recipe = _get_cutting_recipe_with_input(get_kitchen_object().kitchen_object_resource)
+				var cutting_recipe = _get_recipe_with_input(get_kitchen_object().kitchen_object_resource)
 				
 				progress_changed.emit(_cutting_progress as float / cutting_recipe.cutting_progress_max)
 	else:
 		if not player.has_kitchen_object():
 			get_kitchen_object().set_kitchen_object_parent(player)
+			
+			progress_changed.emit(0)
 
 
 func interact_alternate(_player: Player) -> void:
@@ -33,7 +35,7 @@ func interact_alternate(_player: Player) -> void:
 		
 		cut_executed.emit()
 		
-		var cutting_recipe = _get_cutting_recipe_with_input(get_kitchen_object().kitchen_object_resource)
+		var cutting_recipe = _get_recipe_with_input(get_kitchen_object().kitchen_object_resource)
 		
 		progress_changed.emit(_cutting_progress as float / cutting_recipe.cutting_progress_max)
 		
@@ -44,19 +46,19 @@ func interact_alternate(_player: Player) -> void:
 
 
 func _has_recipe_with_input(kitchen_object_resource: KitchenObjectResource) -> bool:
-	var cutting_recipe = _get_cutting_recipe_with_input(kitchen_object_resource)
+	var cutting_recipe = _get_recipe_with_input(kitchen_object_resource)
 	return cutting_recipe != null
 
 
 func _get_output_for_input(kitchen_object_resource: KitchenObjectResource) -> KitchenObjectResource:
-	var cutting_recipe = _get_cutting_recipe_with_input(kitchen_object_resource)
+	var cutting_recipe = _get_recipe_with_input(kitchen_object_resource)
 	if cutting_recipe:
 		return cutting_recipe.output
 
 	return null
 
 
-func _get_cutting_recipe_with_input(kitchen_object_resource: KitchenObjectResource) -> CuttingRecipeResource:
+func _get_recipe_with_input(kitchen_object_resource: KitchenObjectResource) -> CuttingRecipeResource:
 	for cutting_recipe in cutting_recipe_list:
 		if cutting_recipe.input == kitchen_object_resource:
 			return cutting_recipe

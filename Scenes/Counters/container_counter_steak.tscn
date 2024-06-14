@@ -2,7 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://csf2u2q10etrc" path="res://Scenes/Counters/base_counter.tscn" id="1_d4tno"]
 [ext_resource type="Script" path="res://Scripts/Counters/container_counter.gd" id="2_clr0i"]
-[ext_resource type="Resource" uid="uid://5i32y4t6nsca" path="res://Resources/KitchenObjects/steak.tres" id="3_yvopw"]
+[ext_resource type="Resource" uid="uid://cr3crmhmrxmuf" path="res://Resources/KitchenObjects/burger_uncooked.tres" id="3_duymj"]
 [ext_resource type="Texture2D" uid="uid://bb7j6bgsrwy0f" path="res://Assets/KayKit_Restaurant_Bits_1.0_FREE/restaurantbits_texture.png" id="4_t7ab0"]
 [ext_resource type="Material" uid="uid://cve8ao2vcy0ya" path="res://Resources/Materials/outline.tres" id="5_s4g8n"]
 [ext_resource type="Script" path="res://Scripts/Counters/selected_counter_visual.gd" id="6_8e4m1"]
@@ -62,7 +62,7 @@ _surfaces = [{
 
 [node name="ContainerCounterSteak" node_paths=PackedStringArray("counter_top_point") instance=ExtResource("1_d4tno")]
 script = ExtResource("2_clr0i")
-_kitchen_object_resource = ExtResource("3_yvopw")
+_kitchen_object_resource = ExtResource("3_duymj")
 counter_top_point = NodePath("CounterTopPoint")
 
 [node name="crate_steak" type="Node3D" parent="." index="2"]

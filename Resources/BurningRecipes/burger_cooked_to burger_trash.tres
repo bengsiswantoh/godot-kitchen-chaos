@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="BurningRecipeResource" load_steps=4 format=3 uid="uid://c8sgtpouql2xl"]
+
+[ext_resource type="Resource" uid="uid://des80drath6xb" path="res://Resources/KitchenObjects/burger_cooked.tres" id="1_0frxn"]
+[ext_resource type="Resource" uid="uid://c7i21ld4cpds8" path="res://Resources/KitchenObjects/burger_trash.tres" id="2_nj2bn"]
+[ext_resource type="Script" path="res://Scripts/Resources/burning_recipe_resource.gd" id="3_2sdnu"]
+
+[resource]
+script = ExtResource("3_2sdnu")
+input = ExtResource("1_0frxn")
+output = ExtResource("2_nj2bn")
+burning_timer_max = 5.0
