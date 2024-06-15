@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://cb56hii604vys"]
+
+[ext_resource type="Script" path="res://Scripts/kitchen_object.gd" id="1_6a6qn"]
+[ext_resource type="PackedScene" uid="uid://bftlbo87ul5e" path="res://Assets/KayKit_Restaurant_Bits_1.0_FREE/plate.gltf" id="2_l6s31"]
+
+[node name="Plate" type="Node3D"]
+script = ExtResource("1_6a6qn")
+
+[node name="plate" parent="." instance=ExtResource("2_l6s31")]
