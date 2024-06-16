@@ -2,6 +2,9 @@ class_name PlateKitchenObject
 extends KitchenObject
 
 
+signal ingredient_added(ingredient: KitchenObjectResource)
+
+
 @export var valid_kitchen_object_resource_list: Array[KitchenObjectResource]
 
 
@@ -16,4 +19,5 @@ func try_add_ingredient(new_kitchen_object_resource: KitchenObjectResource) -> b
 		return false
 	
 	_kitchen_object_resourse_list.append(new_kitchen_object_resource)
+	ingredient_added.emit(new_kitchen_object_resource)
 	return true

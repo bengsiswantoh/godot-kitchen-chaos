@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://cb56hii604vys"]
+[gd_scene load_steps=18 format=3 uid="uid://cb56hii604vys"]
 
 [ext_resource type="Script" path="res://Scripts/plate_kitchen_object.gd" id="1_hkd6b"]
 [ext_resource type="PackedScene" uid="uid://bftlbo87ul5e" path="res://Assets/KayKit_Restaurant_Bits_1.0_FREE/plate.gltf" id="2_l6s31"]
@@ -8,9 +8,54 @@
 [ext_resource type="Resource" uid="uid://b44ifbadbsaon" path="res://Resources/KitchenObjects/cheese_slice.tres" id="5_65h0u"]
 [ext_resource type="Resource" uid="uid://des80drath6xb" path="res://Resources/KitchenObjects/burger_cooked.tres" id="6_80fpd"]
 [ext_resource type="Resource" uid="uid://c7i21ld4cpds8" path="res://Resources/KitchenObjects/burger_trash.tres" id="7_tq0ap"]
+[ext_resource type="Script" path="res://Scripts/plate_visual.gd" id="9_wxak5"]
+[ext_resource type="PackedScene" uid="uid://coq3el205yxkk" path="res://Assets/KayKit_Restaurant_Bits_1.0_FREE/food_ingredient_bun_bottom.gltf" id="10_oo7gi"]
+[ext_resource type="Script" path="res://Scripts/plate_visual_object.gd" id="11_8itrq"]
+[ext_resource type="PackedScene" uid="uid://cs13b10fsgdtq" path="res://Assets/KayKit_Restaurant_Bits_1.0_FREE/food_ingredient_bun_top.gltf" id="12_46pyj"]
+[ext_resource type="PackedScene" uid="uid://co77oh012est2" path="res://Assets/KayKit_Restaurant_Bits_1.0_FREE/food_ingredient_burger_cooked.gltf" id="12_h0758"]
+[ext_resource type="PackedScene" uid="uid://bk2gbxbgj265m" path="res://Assets/KayKit_Restaurant_Bits_1.0_FREE/food_ingredient_lettuce_slice.gltf" id="13_0f5c5"]
+[ext_resource type="PackedScene" uid="uid://baqjqjljy16ee" path="res://Assets/KayKit_Restaurant_Bits_1.0_FREE/food_ingredient_burger_trash.gltf" id="13_uatde"]
+[ext_resource type="PackedScene" uid="uid://b78apw0fsh4gd" path="res://Assets/KayKit_Restaurant_Bits_1.0_FREE/food_ingredient_tomato_slice.gltf" id="14_83cvq"]
+[ext_resource type="PackedScene" uid="uid://dcvcdkmlmejqx" path="res://Assets/KayKit_Restaurant_Bits_1.0_FREE/food_ingredient_cheese_slice.gltf" id="16_p4gwe"]
 
 [node name="Plate" type="Node3D"]
 script = ExtResource("1_hkd6b")
 valid_kitchen_object_resource_list = Array[Resource("res://Scripts/Resources/kitchen_object_resource.gd")]([ExtResource("2_wb6gw"), ExtResource("3_u2o3g"), ExtResource("4_ojd2c"), ExtResource("5_65h0u"), ExtResource("6_80fpd"), ExtResource("7_tq0ap")])
 
-[node name="plate" parent="." instance=ExtResource("2_l6s31")]
+[node name="plate" parent="." node_paths=PackedStringArray("plate_visual_object_list") instance=ExtResource("2_l6s31")]
+script = ExtResource("9_wxak5")
+plate_visual_object_list = [NodePath("../bun"), NodePath("../food_ingredient_burger_cooked"), NodePath("../food_ingredient_burger_trash"), NodePath("../food_ingredient_lettuce_slice"), NodePath("../food_ingredient_tomato_slice"), NodePath("../food_ingredient_cheese_slice")]
+
+[node name="bun" type="Node3D" parent="."]
+script = ExtResource("11_8itrq")
+kitchen_object_resource = ExtResource("2_wb6gw")
+
+[node name="food_ingredient_bun_bottom" parent="bun" instance=ExtResource("10_oo7gi")]
+
+[node name="food_ingredient_bun_top" parent="bun" instance=ExtResource("12_46pyj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.4, 0)
+
+[node name="food_ingredient_burger_cooked" parent="." instance=ExtResource("12_h0758")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.15, 0)
+script = ExtResource("11_8itrq")
+kitchen_object_resource = ExtResource("6_80fpd")
+
+[node name="food_ingredient_burger_trash" parent="." instance=ExtResource("13_uatde")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.15, 0)
+script = ExtResource("11_8itrq")
+kitchen_object_resource = ExtResource("7_tq0ap")
+
+[node name="food_ingredient_lettuce_slice" parent="." instance=ExtResource("13_0f5c5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.2, 0)
+script = ExtResource("11_8itrq")
+kitchen_object_resource = ExtResource("4_ojd2c")
+
+[node name="food_ingredient_tomato_slice" parent="." instance=ExtResource("14_83cvq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.3, 0)
+script = ExtResource("11_8itrq")
+kitchen_object_resource = ExtResource("3_u2o3g")
+
+[node name="food_ingredient_cheese_slice" parent="." instance=ExtResource("16_p4gwe")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.3, 0)
+script = ExtResource("11_8itrq")
+kitchen_object_resource = ExtResource("5_65h0u")
