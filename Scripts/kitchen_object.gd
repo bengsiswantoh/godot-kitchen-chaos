@@ -43,3 +43,10 @@ func get_kitchen_object_parent() -> Node3D:
 func destory_self() -> void:
 	_kitchen_object_parent.clear_kitchen_object()
 	queue_free()
+
+
+func try_get_plate() -> PlateKitchenObject:
+	if self is PlateKitchenObject:
+		return self
+	
+	return null

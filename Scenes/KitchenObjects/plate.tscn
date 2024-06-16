@@ -1,9 +1,16 @@
-[gd_scene load_steps=3 format=3 uid="uid://cb56hii604vys"]
+[gd_scene load_steps=9 format=3 uid="uid://cb56hii604vys"]
 
-[ext_resource type="Script" path="res://Scripts/kitchen_object.gd" id="1_6a6qn"]
+[ext_resource type="Script" path="res://Scripts/plate_kitchen_object.gd" id="1_hkd6b"]
 [ext_resource type="PackedScene" uid="uid://bftlbo87ul5e" path="res://Assets/KayKit_Restaurant_Bits_1.0_FREE/plate.gltf" id="2_l6s31"]
+[ext_resource type="Resource" uid="uid://bew7x5aamjhjc" path="res://Resources/KitchenObjects/bun.tres" id="2_wb6gw"]
+[ext_resource type="Resource" uid="uid://b01mde8bblkgc" path="res://Resources/KitchenObjects/tomato_slices.tres" id="3_u2o3g"]
+[ext_resource type="Resource" uid="uid://c0jx18ewmxrcg" path="res://Resources/KitchenObjects/lettuce_slice.tres" id="4_ojd2c"]
+[ext_resource type="Resource" uid="uid://b44ifbadbsaon" path="res://Resources/KitchenObjects/cheese_slice.tres" id="5_65h0u"]
+[ext_resource type="Resource" uid="uid://des80drath6xb" path="res://Resources/KitchenObjects/burger_cooked.tres" id="6_80fpd"]
+[ext_resource type="Resource" uid="uid://c7i21ld4cpds8" path="res://Resources/KitchenObjects/burger_trash.tres" id="7_tq0ap"]
 
 [node name="Plate" type="Node3D"]
-script = ExtResource("1_6a6qn")
+script = ExtResource("1_hkd6b")
+valid_kitchen_object_resource_list = Array[Resource("res://Scripts/Resources/kitchen_object_resource.gd")]([ExtResource("2_wb6gw"), ExtResource("3_u2o3g"), ExtResource("4_ojd2c"), ExtResource("5_65h0u"), ExtResource("6_80fpd"), ExtResource("7_tq0ap")])
 
 [node name="plate" parent="." instance=ExtResource("2_l6s31")]
